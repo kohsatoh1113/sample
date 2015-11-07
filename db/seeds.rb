@@ -7,12 +7,16 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 require 'csv'
+require 'nkf'
+
 ActiveRecord::Base.transaction do
   csv = CSV.read('db/y.csv', encoding: "Shift_JIS:UTF-8")
   csv.each do |line|
     code = line[2]
     name = line[4]
-    MedicineMaster.create(code: code, name: name)
-    puts "#{code} #{name}"
+    kanayomi = line[6]
+    yomi = NKF.nkf('-w --hiragana', kanayomi)
+    MedicineMaster.create(code: code, name: name, yomi: yomi)
+    puts "#{code} #{name} #{yomi}"
   end
 end
