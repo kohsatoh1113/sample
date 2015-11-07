@@ -1,6 +1,6 @@
 class MedicineMastersController < ApplicationController
   def index
-    return @medicine_masters = [] unless params[:keyword]
+    return @medicine_masters = [] if params[:keyword].empty?
 
     keywords = params[:keyword].tr('　',' ').split
 
