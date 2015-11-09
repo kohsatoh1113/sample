@@ -1,4 +1,4 @@
-<h1>Okusuri</h1>
+<h1>お薬検索</h1>
 <%= form_tag('/medicine_masters/index', method: :get) do %>
   <%= text_field_tag :keyword, params[:keyword], placeholder: '医薬品名を入力してください' %>
   <%= submit_tag "検索" %>
@@ -6,6 +6,6 @@
 <% @medicine_masters.each do |medicine_master| %>
   <p>
     <%= "#{medicine_master.code} #{medicine_master.name}" %>
-    <%= link_to "[G]", "http://www.google.co.jp/#q=#{medicine_master.name}", target: "_blank" %>
+    <%= link_to "[Google検索]", "http://www.google.co.jp/#q=#{medicine_master.name}", target: "_blank" %>
   </p>
 <% end %>
