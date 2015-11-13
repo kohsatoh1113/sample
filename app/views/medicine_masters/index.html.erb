@@ -6,6 +6,6 @@
 <% @medicine_masters.each do |medicine_master| %>
   <p>
     <%= "#{medicine_master.code} #{medicine_master.name}" %>
-    <%= link_to "[Google検索]", "http://www.google.co.jp/#q=#{medicine_master.name}", target: "_blank" %>
+    <%= link_to "Google", "http://www.google.co.jp/#q=#{medicine_master.name}", target: "_blank", class: "btn btn-xs btn-info" %>
   </p>
 <% end %>
